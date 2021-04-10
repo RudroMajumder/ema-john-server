@@ -32,12 +32,13 @@ client.connect(err => {
       })
   })
 
-  app.get('/product/:key',(req,res)=>{
-      productsCollection.find({ key: req.params.key })
-      .toArray((err,documents)=>{
-          res.send(documents[0]);
-      })
-  })
+  app.get('/product/:key', (req, res) => {
+    productsCollection.find({key: req.params.key})
+    .toArray( (err, documents) => {
+        res.send(documents[0]);
+    })
+})
+
 
   app.post('/productsByKeys', (req, res) => {
     const productKeys = req.body;
